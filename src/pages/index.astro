@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import Card from '../components/Card.astro';
+import ProfilePicture from '../assets/Vaish.jpg';
+
+const name = 'ಸ್ವಾಗತ, Welcome!!';
+---
+
+<Layout title={name}>
+	<!-- Card box spans both columns by styling layout-grid -->
+	<div class="intro-image" slot="left">
+		<Image src={ProfilePicture} alt={`Photo of ${name}`} width={300} height={300} class="profile-img" />
+		<span class="name-highlight">Vaishnavi N</span>
+	</div>
+
+	<div class="intro-text" slot="right">
+		<h1>{name}</h1>
+		<Card>
+			<p>
+				Hey there! I’m a research scholar at the Mehta Family School of Data Science and Artificial Intelligence, IIT&nbsp;Guwahati under the supervision of Dr.&nbsp;Ayon Borthakur. I explore the fascinating intersection of brains and machines—building systems that not only think but adapt. My work focuses on neuro-inspired AI, computer vision, TinyML, and continual learning—shaping AI that evolves like we do.
+			</p>
+			<p>
+				When I’m not training machines to be a little more human, you’ll find me painting walls into stories or swimming my way through ideas.
+			</p>
+			<p>
+				<strong>Email:</strong>
+				<a href="mailto:n.vaishnavi@iitg.ac.in"> n.vaishnavi@iitg.ac.in</a>
+			</p>
+		</Card>
+	</div>
+</Layout>
+
+<style>
+/* Profile picture adjustments */
+.profile-img {
+	border-radius: 50%;
+	object-fit: cover;
+	width: 300px;
+	height: 300px;
+	transform: scale(0.85); /* zoomed-out look */
+	transform-origin: center;
+}
+
+.intro-image {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.intro-text {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+/* purple pill highlight */
+
+.name-highlight {
+	background: #9c8dff; /* lighter lavender */
+	color: #1a1a1a;
+	padding: 0.2rem 0.6rem;
+	border-radius: 4px; /* square-ish corners */
+	font-weight: 600;
+}
+
+/* remove unused intro-box rules (kept for reference) */
+}
+
+
+</style>
