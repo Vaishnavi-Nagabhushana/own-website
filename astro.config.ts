@@ -1,13 +1,7 @@
 import { loadEnv } from "vite";
 import { defineConfig } from 'astro/config';
 
-import expressiveCode from 'astro-expressive-code';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
 import spectre from './package/src';
-
-import node from '@astrojs/node';
-import { spectreDark } from './src/ec-theme';
 
 // const {
 //   GISCUS_REPO,
@@ -26,11 +20,6 @@ const config = defineConfig({
   site: 'https://spectre.louisescher.dev',
   output: 'static',
   integrations: [
-    expressiveCode({
-      themes: [spectreDark],
-    }),
-    mdx(),
-    sitemap(),
     spectre({
       name: 'Home',
       openGraph: {
@@ -59,9 +48,7 @@ const config = defineConfig({
       // }
     })
   ],
-  adapter: node({
-    mode: 'standalone'
-  })
+  // No adapter during dev; add one for deployment as needed
 });
 
 export default config;

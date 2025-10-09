@@ -11,12 +11,9 @@ info:
       name: book-open
 ---
 
-import Card from '../../components/Card.astro';
-
-<Card>
-
 ### Hi this is from hi.mdxA
 
 ---
+
 <p> its just some dumb testing</p>
-</Card>
+

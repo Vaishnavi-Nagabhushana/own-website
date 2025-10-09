@@ -50,10 +50,13 @@
                         "type": "string",
                         "const": "lucide"
                       },
-                      "name": {}
+                      "name": {
+                        "type": "string"
+                      }
                     },
                     "required": [
-                      "type"
+                      "type",
+                      "name"
                     ],
                     "additionalProperties": false
                   },
@@ -64,10 +67,13 @@
                         "type": "string",
                         "const": "simple-icons"
                       },
-                      "name": {}
+                      "name": {
+                        "type": "string"
+                      }
                     },
                     "required": [
-                      "type"
+                      "type",
+                      "name"
                     ],
                     "additionalProperties": false
                   }

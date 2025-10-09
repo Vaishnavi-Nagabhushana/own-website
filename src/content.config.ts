@@ -1,7 +1,6 @@
 import { file, glob } from "astro/loaders";
 import { defineCollection, z, reference } from "astro:content";
-import type { icons as lucideIcons } from '@iconify-json/lucide/icons.json';
-import type { icons as simpleIcons } from '@iconify-json/simple-icons/icons.json';
+// Simplified icon schemas to avoid external packages
 
 const other = defineCollection({
   loader: glob({ base: "src/content/other", pattern: "**/*.{md,mdx}" }),
@@ -9,12 +8,12 @@ const other = defineCollection({
 
 const lucideIconSchema = z.object({
   type: z.literal("lucide"),
-  name: z.custom<keyof typeof lucideIcons>(),
+  name: z.string(),
 });
 
 const simpleIconSchema = z.object({
   type: z.literal("simple-icons"),
-  name: z.custom<keyof typeof simpleIcons>(),
+  name: z.string(),
 });
 
 const quickInfo = defineCollection({
@@ -70,7 +69,7 @@ const posts = defineCollection({
 });
 
 const projects = defineCollection({
-  loader: glob({ base: "src/content/projects", pattern: "**/*.mdx" }),
+  loader: glob({ base: "src/content/projects", pattern: "**/*.{md,mdx}" }),
   schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),

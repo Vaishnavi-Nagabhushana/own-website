@@ -1,5 +1,6 @@
 [
-  {
-    "id": "guide"
-  }
+  { "id": "guide" },
+  { "id": "test" },
+  { "id": "blog" },
+  { "id": "misc" }
 ]

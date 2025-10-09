@@ -11,11 +11,7 @@ info:
       name: book-open
 ---
 
-import Card from '../../components/Card.astro';
+### Hi, this is from hi.mdx
 
-<Card>
-  <div>
-    <h3>Hi, this is from hi.mdx</h3>
-    <p>It's just some dumb testing</p>
-  </div>
-</Card>
+It's just some dumb testing.
+
