@@ -3,14 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import Card from '../components/Card.astro';
 import ProfilePicture from '../assets/v1.png';
-import fs from 'fs';
-import bibtexParse from 'bibtex-parse-js';
+import fs from "node:fs";
+import path from "node:path";
+import bibtexParse from "bibtex-parse-js";
 
-const bibtex = fs.readFileSync(
-  new URL('../data/ref.bib', import.meta.url),
-  'utf8'
-);
+const bibPath = path.join(process.cwd(), "src", "data", "ref.bib");
 
+const bibtex = fs.readFileSync(bibPath, "utf8");
 const publications = bibtexParse.toJSON(bibtex);
 const name = 'ಸ್ವಾಗತ, Welcome!!';
 ---
