@@ -97,7 +97,7 @@ class PageBackground {
     // Randomly select 75% of the letters to animate
     const randomLetters = this.getRandomAmountFromArray<LetterPosition>(
       this.letterPositions,
-      Math.floor(this.letterPositions.length * 0.01)
+      Math.floor(this.letterPositions.length * 0.006)
     );
   
     this.overlayCtx.font = 'bold 28px Geist Mono';
