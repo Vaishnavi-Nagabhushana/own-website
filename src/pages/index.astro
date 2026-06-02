@@ -11,14 +11,14 @@ const bibPath = path.join(process.cwd(), "src", "data", "ref.bib");
 
 const bibtex = fs.readFileSync(bibPath, "utf8");
 const publications = bibtexParse.toJSON(bibtex);
-const name = 'ಸ್ವಾಗತ, Welcome!!';
+const name = 'ನಮಸ್ಕಾರ • Welcome! ';
 ---
 
 <Layout title={name}>
 	<!-- Card box spans both columns by styling layout-grid -->
 	<div class="intro-image" slot="left">
 		<Image src={ProfilePicture} alt={`Photo of ${name}`} width={300} height={300} class="profile-img" />
-		<span class="name-highlight">Vaishnavi N</span>
+		<span class="name-highlight">Vaishnavi Nagabhushana</span>
 	</div>
 
 	<div class="intro-text" slot="right">

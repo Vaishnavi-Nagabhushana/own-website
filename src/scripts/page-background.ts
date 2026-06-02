@@ -15,7 +15,7 @@ interface LetterInstance extends LetterPosition {
  * PageBackground class
  */
 class PageBackground {
-  private LETTER_FADE_DURATION: [number, number] = [2, 7]; // Seconds
+  private LETTER_FADE_DURATION: [number, number] = [0.8, 2.5]; // Seconds
 
   private baseCanvas: HTMLCanvasElement;
   private overlayCanvas: HTMLCanvasElement;
@@ -80,15 +80,12 @@ class PageBackground {
     const letters = Math.ceil(this.width / 17);
     const lines = Math.ceil(this.height / 35);
   
-    // Loop through the canvas and draw the text
-    this.baseCtx.font = '28px Geist Mono';
-    this.baseCtx.textAlign = 'start';
-    this.baseCtx.textBaseline = 'top';
-    this.baseCtx.fillStyle = 'rgba(255, 255, 255, 0.01)';
-      
+    // // Loop through the canvas and draw the text
+    this.baseCtx.fillStyle = '#000';
+    this.baseCtx.fillRect(0, 0, this.width, this.height);
+
     for(let i = 0; i < lines; i++) {
       for(let j = 0; j < letters; j++) {
-        this.baseCtx.fillText(text[j % text.length], j * 17, i * 35);
         this.letterPositions.push({
           x: j * 17,
           y: i * 35,
@@ -100,14 +97,14 @@ class PageBackground {
     // Randomly select 75% of the letters to animate
     const randomLetters = this.getRandomAmountFromArray<LetterPosition>(
       this.letterPositions,
-      Number.parseInt((lines * 0.75).toFixed())
+      Math.floor(this.letterPositions.length * 0.01)
     );
   
     this.overlayCtx.font = 'bold 28px Geist Mono';
     this.overlayCtx.textAlign = 'start';
     this.overlayCtx.textBaseline = 'top';
     this.overlayCtx.fillStyle = `rgba(${this.primaryRgb}, 0)`;
-    this.overlayCtx.shadowBlur = 16;
+    this.overlayCtx.shadowBlur = 30;
     this.overlayCtx.shadowColor = `rgba(${this.primaryRgb}, 0)`;
 
     // Draw the letters on the overlay canvas
@@ -193,7 +190,7 @@ class PageBackground {
     this.overlayCtx.font = 'bold 28px Geist Mono';
     this.overlayCtx.textAlign = 'start';
     this.overlayCtx.textBaseline = 'top';
-    this.overlayCtx.shadowBlur = 16;
+    this.overlayCtx.shadowBlur = 30;
 
     for(const letter of this.letterInstances) {
       if (letter.fadeout > Date.now()) continue;
