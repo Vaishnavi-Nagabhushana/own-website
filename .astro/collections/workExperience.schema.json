@@ -1,37 +1,36 @@
 {
-  "$ref": "#/definitions/workExperience",
-  "definitions": {
-    "workExperience": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "number"
-        },
-        "title": {
-          "type": "string"
-        },
-        "company": {
-          "type": "string"
-        },
-        "duration": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "$schema": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "title",
-        "company",
-        "duration",
-        "description"
-      ],
-      "additionalProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "number"
+      },
+      "title": {
+        "type": "string"
+      },
+      "company": {
+        "type": "string"
+      },
+      "duration": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "title",
+      "company",
+      "duration",
+      "description"
+    ]
+  }
 }

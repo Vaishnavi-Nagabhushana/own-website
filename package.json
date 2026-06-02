@@ -4,12 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "dev": "astro dev",
-  "build": "astro build",
-  "preview": "astro preview",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
-
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vaishnavi-Nagabhushana/own-website.git"
@@ -22,6 +21,7 @@
   },
   "homepage": "https://github.com/Vaishnavi-Nagabhushana/own-website#readme",
   "dependencies": {
-    "astro": "^5.13.2"
+    "astro": "^6.3.3",
+    "bibtex-parse-js": "^0.0.24"
   }
 }

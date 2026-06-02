@@ -3,7 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import Card from '../components/Card.astro';
 import ProfilePicture from '../assets/v1.png';
+import fs from 'fs';
+import bibtexParse from 'bibtex-parse-js';
 
+const bibtex = fs.readFileSync(
+  new URL('../data/ref.bib', import.meta.url),
+  'utf8'
+);
+
+const publications = bibtexParse.toJSON(bibtex);
 const name = 'ಸ್ವಾಗತ, Welcome!!';
 ---
 
@@ -18,7 +26,9 @@ const name = 'ಸ್ವಾಗತ, Welcome!!';
 		<h1>{name}</h1>
 		<Card>
 			<p>
-				Hey there! I’m a research scholar at the Mehta Family School of Data Science and Artificial Intelligence, IIT&nbsp;Guwahati under the supervision of Dr.&nbsp;Ayon Borthakur. I explore the fascinating intersection of brains and machines—building systems that not only think but adapt. My work focuses on neuro-inspired AI, computer vision, TinyML, and continual learning—shaping AI that evolves like we do.
+				Heyyy there! I’m a research scholar at the Mehta Family School of Data Science and Artificial Intelligence, IIT&nbsp;Guwahati under the supervision of Dr.&nbsp;Ayon Borthakur. 
+				I explore the fascinating intersection of brains and machines—building systems that not only think but adapt. 
+				My work focuses on <b>Brain Inspired Efficient Continual Learning</b> - shaping AI to evolve just like we do.
 			</p>
 			<p>
 				When I’m not training machines to be a little more human, you’ll find me painting walls into stories or swimming my way through ideas.
@@ -28,8 +38,59 @@ const name = 'ಸ್ವಾಗತ, Welcome!!';
 				<a href="mailto:n.vaishnavi@iitg.ac.in"> n.vaishnavi@iitg.ac.in</a>
 			</p>
 		</Card>
+		<h1>Publications</h1>
+		<Card>
+		<ul>
+			{publications.map((pub) => (
+			<li>
+				<strong>{pub.entryTags.title}</strong><br />
+				{pub.entryTags.author}<br />
+				{pub.entryTags.journal || pub.entryTags.booktitle},{" "}
+				{pub.entryTags.year}
+				{pub.entryTags.url && (
+				<>
+					{" "}—
+					<a href={pub.entryTags.url} target="_blank">
+					Link
+					</a>
+				</>
+				)}
+				<br /><br />
+			</li>
+			))}
+		</ul>
+		</Card>
+		<h1>Timeline</h1>
+		<Card>
+			<ul>
+				<li>
+				<strong>Aug 2024 – Present:</strong> Research Scholar at{" "}
+				<a
+					href="https://ayonborthakur.pages.dev/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					SustainAI Lab
+				</a>
+				, IIT Guwahati
+				</li>
+
+				<li>
+				<strong>Jan 2024 – Jul 2024:</strong> Machine Learning Intern,
+				Google Research Sponsored Mentorship Program
+				(exploreCSR 2023–24), IIT Roorkee
+				</li>
+
+				<li>
+				<strong>2020 – 2024:</strong> B.E. in Computer Science and Engineering,
+				under VTU
+				</li>
+			</ul>
+		</Card>
 	</div>
 </Layout>
+
+
 
 <style>
 /* Profile picture adjustments */
@@ -59,7 +120,7 @@ const name = 'ಸ್ವಾಗತ, Welcome!!';
 /* purple pill highlight */
 
 .name-highlight {
-	background: #9c8dff; /* lighter lavender */
+	background: #c7bfff; /* lighter lavender */
 	color: #1a1a1a;
 	padding: 0.2rem 0.6rem;
 	border-radius: 4px; /* square-ish corners */
